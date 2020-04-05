@@ -43,7 +43,7 @@ Calculator<ElemType>::Calculator()
     s.base = new ElemType[STACK_INIT_SIZE];//栈底指向申请空间的首地址
     if (s.base == NULL)//申请失败
         exit(0);
-    s.top = s.base;//top总是指向有效元素的下一个空间（栈顶），top中没有数据
+    s.top = s.base;//top总是指向有效元素的下一个空间(栈顶)，top中没有数据
     s.stackSize = STACK_INIT_SIZE;
 }
 
@@ -86,7 +86,7 @@ void Calculator<ElemType>::clearStack()
     s.top = s.base;
 }
 
-//计算栈的当前容量（存储的数据量或者元素个数）
+//计算栈的当前容量(存储的数据量或者元素个数)
 template<typename ElemType>
 int Calculator<ElemType>::StackLen()
 {
@@ -134,7 +134,7 @@ int Calculator<ElemType>::Calculation(char Postfix[])
         {
         case '+':
             Pop(a);
-            if (!Pop(b))//防止这是符号位（单目运算符）
+            if (!Pop(b))//防止这是符号位(单目运算符)
             {
                 Push(a);
                 break;
