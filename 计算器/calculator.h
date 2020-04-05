@@ -134,22 +134,13 @@ int Calculator<ElemType>::Calculation(char Postfix[])
         {
         case '+':
             Pop(a);
-            if (!Pop(b))//防止这是符号位(单目运算符)
-            {
-                Push(a);
-                break;
-            }
             Pop(b);
             //            printf("%f+%f=%f\n",b,a,b+a);
             Push(b + a);
             break;
         case '-':
             Pop(a);
-            if (!Pop(b))//
-            {
-                Push(-a);
-                break;
-            }
+            Pop(b);
             //            printf("%f-%f=%f\n",b,a,b-a);
             Push(b - a);
             break;
