@@ -60,7 +60,7 @@ void Calculator<ElemType>::Push(ElemType e)
     if (s.top - s.base >= s.stackSize)
     {
         s.base = (ElemType*)realloc(s.base, (s.stackSize + STACKINCREMENT) * sizeof(ElemType));
-        //        realloc是申请一个新的空间，并将旧的内容拷贝到新的空间，还会释放以前的空间
+        //申请一个新的空间，并将旧的内容拷贝到新的空间，还会释放以前的空间
         if (s.base == NULL)
             exit(0);
         s.top = s.base + s.stackSize;//因为重新分配了空间，所以重新设置栈顶
@@ -133,23 +133,14 @@ int Calculator<ElemType>::Calculation(char Postfix[])
         switch (Postfix[j])
         {
         case '+':
-            Pop(a);
-            if (!Pop(b))//防止这是符号位(单目运算符)
-            {
-                Push(a);
-                break;
-            }
+            Pop(a);                      
             Pop(b);
             //            printf("%f+%f=%f\n",b,a,b+a);
             Push(b + a);
             break;
         case '-':
             Pop(a);
-            if (!Pop(b))//
-            {
-                Push(-a);
-                break;
-            }
+            Pop(b);
             //            printf("%f-%f=%f\n",b,a,b-a);
             Push(b - a);
             break;
