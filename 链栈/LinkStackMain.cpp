@@ -19,6 +19,7 @@ void menu()
 
 int main()
 {
+	system("color F0");
 	LinkStack<int> stack;
 	int ch;
 	int length;
